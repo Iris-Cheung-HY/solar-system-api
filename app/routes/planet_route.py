@@ -17,5 +17,17 @@ def get_all_planets():
     return planet_response
 
 
+# @planet_bp.get("/<planet_id>")
+# def get_one_planet(planet_id):
+    
+#     for planet in planets:
+#         if planet.id != planet_id:
+#             return NameError
+#         elif planet_id != 
+        
+#         else:
+#             return planet
+    
+    
 
 
