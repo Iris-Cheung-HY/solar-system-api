@@ -29,8 +29,21 @@ def create_planet():
 
 @planet_bp.get("")
 def get_all_planets():
-    query = db.select(Planet).order_by(Planet.id)
-    planets = db.session.scalars(query)
+    # create a basic select query without any filtering
+    query = db.select(Planet)
+
+    # If we have a `name` query parameter, we can add on to the query object
+    name_param = request.args.get("name")
+    if name_param:
+        query = query.where(Planet.name.ilike(f"%{name_param}%"))
+        
+    description_param = request.args.get("description")
+    if description_param:
+        # In case there are planets with similar names, we can also filter by description
+        query = query.where(Planet.description.ilike(f"%{description_param}%"))
+
+    planets = db.session.scalars(query.order_by(Planet.id))
+
     response = []
 
     for planet in planets:        
