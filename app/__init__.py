@@ -1,7 +1,7 @@
 from flask import Flask
 from .db import db, migrate
 from .models.planet import Planet
-from .routes.planet_route import planet_bp
+from .routes.planet_route import bp as planet_bp
 import os
 
 
