@@ -1,4 +1,4 @@
-def test_get_all_planetsk_with_no_records(client):
+def test_get_all_planets_with_no_records(client):
     # Act
     response = client.get("/planets")
     response_body = response.get_json()
