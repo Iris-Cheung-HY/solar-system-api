@@ -18,8 +18,11 @@ def test_get_all_moons(client, one_saved_moon):
         "id": 1,
         "name": "Moon1",
         "mass":5,
-        "description":"bright"
+        "description":"bright",
+        "planet": None,
+        "planet_id": None,
     }]
+
 def test_create_one_moon(client):
     # Act
     response = client.post("/moons", json={
@@ -35,6 +38,7 @@ def test_create_one_moon(client):
         "id": 1,
         "name": "Moon1",
         "description": "bright",
-        "mass":5
-
+        "mass":5,
+        "planet": None,
+        "planet_id": None,
     }

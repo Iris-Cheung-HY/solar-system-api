@@ -19,7 +19,7 @@ class Moon(db.Model):
             "description": self.description,
             "mass": self.mass,
             "planet": self.planet.name if self.planet_id else None,
-            "planet_id":self.planet_id
+            "planet_id": self.planet_id
         }
         return moon_as_dict
         
